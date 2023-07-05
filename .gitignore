@@ -2,3 +2,5 @@
 *.exe
 # ignores all .txt file
 *.txt
+# ignores all byte file produced by javac
+*.class
