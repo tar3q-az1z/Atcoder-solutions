@@ -12,11 +12,10 @@ import java.util.StringTokenizer;
  */
 public class P308A{
 	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
+		FastIO io = new FastIO();
 		int[] a = new int[8];
 		for(int i = 0; i < 8; ++i){
-			a[i] = Integer.parseInt(st.nextToken());
+			a[i] = io.nextInt();
 			if(i > 0 && a[i] < a[i - 1]){
 				System.out.println("No");
 				return;
@@ -27,5 +26,35 @@ public class P308A{
 			}
 		}
 		System.out.println("Yes");
+	}
+	static class FastIO{
+		BufferedReader br;
+		StringTokenizer st;
+		public FastIO(){
+			br = new BufferedReader(new InputStreamReader(System.in));
+		}
+		String next(){
+			while(st == null || !st.hasMoreElements()){
+				try{
+					st = new StringTokenizer(br.readLine());
+				}catch(IOException e){
+					e.printStackTrace();
+				}
+			}
+			return st.nextToken();
+		}
+		int nextInt(){return Integer.parseInt(next());}
+		Long nextLong(){return Long.parseLong(next());}
+		double nextDouble(){return Double.parseDouble(next());}
+		String nextLine(){
+			String str = "";
+			try{
+				if(st.hasMoreTokens()) str = st.nextToken("\n");
+				else str = br.readLine();
+			}catch(IOException e){
+				e.printStackTrace();
+			}
+			return str;
+		}
 	}
 }
